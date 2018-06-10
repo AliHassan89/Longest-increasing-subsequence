@@ -80,12 +80,12 @@ public class LongestIncreasingSubsequence
         
         int lastVal;
         ArrayList<Integer> maxSequence = new ArrayList<>();
-        ArrayList<Integer> newSequence = new ArrayList<>();
+        ArrayList<Integer> newSequence;
         
         for (int i=1; i<sequence.size(); i++)
         {
             lastVal = Integer.MIN_VALUE;
-            newSequence.clear();
+            newSequence = new ArrayList<>();
             for (int j=0; j<i; j++)
             {
                 if (sequence.get(j) < sequence.get(i) && sequence.get(j) > lastVal)
