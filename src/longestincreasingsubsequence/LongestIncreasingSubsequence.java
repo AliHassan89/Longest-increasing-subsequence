@@ -84,6 +84,8 @@ public class LongestIncreasingSubsequence
         
         for (int i=1; i<sequence.size(); i++)
         {
+            if (maxSequence.size() > i)
+                break;
             lastVal = Integer.MIN_VALUE;
             newSequence = new ArrayList<>();
             for (int j=0; j<i; j++)
