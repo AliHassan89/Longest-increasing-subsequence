@@ -97,23 +97,9 @@ public class LongestIncreasingSubsequence
                 }
             }
             newSequence.add(sequence.get(i));
-            maxSequence = maxOfLists(newSequence, maxSequence);
+            maxSequence = newSequence.size() > maxSequence.size() ? newSequence : maxSequence;
         }
         
         return maxSequence;
     }
-    
-    private static ArrayList<Integer> maxOfLists(ArrayList<Integer> list1, ArrayList<Integer> list2)
-    {
-        if (list1.size() > list2.size())
-        {
-            return list1;
-        }
-        else
-        {
-            return list2;
-        }
-    }
-    
-    
 }
