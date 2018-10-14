@@ -102,4 +102,30 @@ public class LongestIncreasingSubsequence
         
         return maxSequence;
     }
+    
+    /*
+        computes length of longest increasing subsequence using dynamic programming.
+    */
+    public int lengthOfLongestIncreasingSubsequence(List<Integer> sequence) {
+        
+        int n = sequence.size();
+        int memo[] = new int[n]; 
+        int i,j,max = 0; 
+    
+        /* Initialize memo values for all indexes */
+        Arrays.fill(memo, 1);
+        
+        /* Compute optimized memo values in bottom up manner */
+        for ( i = 1; i < n; i++ ) 
+          for ( j = 0; j < i; j++ )  
+            if ( sequence.get(i) > sequence.get(j) && memo[i] < memo[j] + 1) 
+                memo[i] = memo[j] + 1; 
+    
+           /* Pick maximum of all LIS values */
+           for ( i = 0; i < n; i++ ) 
+              if ( max < memo[i] ) 
+                 max = memo[i]; 
+    
+            return max; 
+    }
 }
